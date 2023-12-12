@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Filter, Document } from "mongodb";
 import { GetDirections } from "@/lib/database";
-//import { HasAllKeys } from "@/lib/dict-helper";
 
 const KEYS: string[] = [
     "telefono",
