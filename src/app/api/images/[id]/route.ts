@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { GetCloudinary } from "@/lib/cloudinary";
-import { Params } from "@/lib/route_helper";
+import { Params } from "@/lib/route-helper";
 
 interface RouteParams {
     id: string
