@@ -13,6 +13,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "cloudinary": "^1.41.0",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "mongodb": "^6.3.0",
@@ -21,7 +22,11 @@
     "postcss": "8.4.28",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "streamifier": "^0.1.1",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
+  },
+  "devDependencies": {
+    "@types/streamifier": "^0.1.2"
   }
 }
