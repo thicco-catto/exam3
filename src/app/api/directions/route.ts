@@ -2,12 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { Filter, Document } from "mongodb";
 import { GetDirections } from "@/lib/database";
 
-const KEYS: string[] = [
-    "telefono",
-    "alias",
-    "contactos"
-];
-
 export async function GET(request: NextRequest) {
     const coleccion = await GetDirections();
     const params = request.nextUrl.searchParams;

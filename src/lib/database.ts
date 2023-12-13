@@ -32,3 +32,8 @@ export async function GetDirections() {
     const db = await GetDatabase();
     return db.collection("directions");
 }
+
+export async function GetRegistrations() {
+    const db = await GetDatabase();
+    return db.collection("registrations");
+}
