@@ -2,8 +2,14 @@
 
 import { useEffect, useState } from 'react';
 
+interface Registration {
+  _id: string;
+  email: string;
+  caducidad: string;
+}
+
 function Registrations() {
-  const [registrations, setRegistrations] = useState([]);
+  const [registrations, setRegistrations] = useState<Registration[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
