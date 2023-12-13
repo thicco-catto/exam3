@@ -1,6 +1,6 @@
 import { GetRegistrations } from "@/lib/database";
 import { HasAllKeys } from "@/lib/dict_helper";
-import { Filter, Document } from "mongodb";
+import { Filter, Document, SortDirection } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
 const KEYS: string[] = [
@@ -19,7 +19,9 @@ export async function GET(request: NextRequest) {
         delete filter.$and;
     }
 
-    const res = await registrations.find(filter).toArray();
+    const sort: { [key: string]: SortDirection } = { caducidad: -1 };
+
+  const res = await registrations.find(filter).sort(sort).toArray();
 
     return NextResponse.json(
         res,
