@@ -8,13 +8,13 @@ export default async function Inicio() {
 
     const directionResponse = await fetch(`${urlBase}api/directions/65787cd49324c963057952d2`);
     if (directionResponse.status !== 200) {
-        notFound();
+        return <h1>Direction not found</h1>
     }
     const direction = await directionResponse.json();
 
     const mapResponse = await fetch(`${urlBase}api/map/direction/${direction._id}`);
     if (mapResponse.status !== 200) {
-        notFound();
+        return <h1>Map not found</h1>
     }
     const map = await mapResponse.json();
 
