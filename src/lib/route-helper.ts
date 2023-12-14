@@ -9,10 +9,11 @@ export interface Params<T> {
  * @param id 
  */
 
-/*
 export function GetIdFilter(id: string): Filter<Document> {
     return {_id: {$eq: ObjectId.createFromHexString(id)}};
 }
+
+/*
 
 export function GetTelefonoFilter(tlf: number): Filter<Document> {
     return {telefono: {$eq: tlf}};
