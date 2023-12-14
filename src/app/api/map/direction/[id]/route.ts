@@ -14,7 +14,7 @@ interface RouteParams {
  * @param direccion 
  * @returns 
  */
-export async function GetOSMAddress(direccion: WithId<Document>) {
+async function GetOSMAddress(direccion: WithId<Document>) {
     const city = `city=${direccion["Localidad"]}`;
 
     const format = "format=json";
