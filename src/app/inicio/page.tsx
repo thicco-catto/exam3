@@ -4,13 +4,15 @@ import { notFound } from "next/navigation";
 import { ImageForm } from "@/components/ImageForm";
 
 export default async function Inicio() {
-    const directionResponse = await fetch(`http://localhost:3000/api/directions/65787cd49324c963057952d2`);
+    const urlBase = process.env.NEXTAUTH_URL;
+
+    const directionResponse = await fetch(`${urlBase}api/directions/65787cd49324c963057952d2`);
     if (directionResponse.status !== 200) {
         notFound();
     }
     const direction = await directionResponse.json();
 
-    const mapResponse = await fetch(`http://localhost:3000/api/map/direction/${direction._id}`);
+    const mapResponse = await fetch(`${urlBase}api/map/direction/${direction._id}`);
     if (mapResponse.status !== 200) {
         notFound();
     }
