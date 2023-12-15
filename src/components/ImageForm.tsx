@@ -47,7 +47,7 @@ export function ImageForm() {
     return <>
         <form onSubmit={handleSubmit}>
             <input type="file" onChange={handleFileChange} />
-            <button type="submit">Upload Image</button>
+            <button type="submit" className="bg-sky-400 px-3 py-2 rounded">Upload Image</button>
         </form>
         {uploadMessage && <p>{uploadMessage}</p>}
     </>;

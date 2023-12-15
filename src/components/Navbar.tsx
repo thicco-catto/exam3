@@ -6,8 +6,7 @@ import { useEffect } from "react";
 
 const registerLogin = async (userData: any) => {
   try {
-    // Realiza la llamada a tu API o función del backend para almacenar la información en la base de datos
-    await fetch('/api/registrations', {
+    await fetch('/api/userLogs', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -26,9 +25,9 @@ function Navbar() {
   useEffect(() => {
     if (session?.user) {
       const userData = {
-        caducidad: session.expires,
+        expires: session.expires,
         email: session.user.email,
-        // Otros datos relevantes para el inicio de sesión
+        date: Date()
       };
       registerLogin(userData);
     }
@@ -37,15 +36,15 @@ function Navbar() {
   return (
     <nav className="bg-gray-500 flex items-center py-3 px-4 justify-between text-white">
       <Link href="/">
-        <h1 className="mr-auto cursor-pointer">appName</h1>
+        <h1 className="mr-auto cursor-pointer">Eventual</h1>
       </Link>
 
       {session?.user ? (
         <div className="flex gap-x-2 items-center">
-          <Link href="/inicio">Inicio</Link>
-          <Link href="/logRegistrations">Registrations</Link>
+          <Link href="/newEvent">Evento Nuevo</Link>
+          <Link href="/userLogs">Logs</Link>
           <p className="mr-2">
-            {session.user.name} {session.user.email}
+            {session.user.name}
           </p>
           <button
             onClick={async () => {
@@ -53,8 +52,9 @@ function Navbar() {
                 callbackUrl: "/",
               });
             }}
+            className="bg-sky-400 px-3 py-2 rounded"
           >
-            Logout
+            Salir
           </button>
         </div>
       ) : (
@@ -62,7 +62,7 @@ function Navbar() {
           onClick={() => signIn()}
           className="bg-sky-400 px-3 py-2 rounded"
         >
-          Sign In
+          Iniciar Sesión
         </button>
       )}
     </nav>

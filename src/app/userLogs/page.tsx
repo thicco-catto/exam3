@@ -5,7 +5,8 @@ import { useEffect, useState } from 'react';
 interface Registration {
   _id: string;
   email: string;
-  caducidad: string;
+  expires: string;
+  date: string;
 }
 
 function Registrations() {
@@ -14,7 +15,7 @@ function Registrations() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api/registrations');
+        const response = await fetch('/api/userLogs');
         const data = await response.json();
         setRegistrations(data);
       } catch (error) {
@@ -32,7 +33,8 @@ function Registrations() {
         {registrations.map((registration) => (
           <div key={registration._id} className="p-4 border rounded-md">
             <p>Email: {registration.email}</p>
-            <p>Caducidad: {registration.caducidad}</p>
+            <p>Fecha: {registration.date}</p>
+            <p>Caducidad: {registration.expires}</p>
           </div>
         ))}
       </div>

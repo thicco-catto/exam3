@@ -1,15 +1,10 @@
-import { GetRegistrations } from "@/lib/database";
+import { GetUserLogs } from "@/lib/database";
 import { HasAllKeys } from "@/lib/dict_helper";
 import { Filter, Document, SortDirection } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
-const KEYS: string[] = [
-    "caducidad",
-    "email"
-];
-
 export async function GET(request: NextRequest) {
-    const registrations = await GetRegistrations();
+    const registrations = await GetUserLogs();
     const params = request.nextUrl.searchParams;
 
     const filter: Filter<Document> = {$and: []};
@@ -32,17 +27,11 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-    const registrations = await GetRegistrations();
+    const registrations = await GetUserLogs();
     const json = await request.json();
 
-    if(!HasAllKeys(json, KEYS)) {
-        return NextResponse.json(
-            {msg: "Faltan atributos"},
-            {
-                status: 406
-            }
-        );
-    }
+    json["expires"] = new Date(json["expires"]);
+    json["date"] = new Date(json["date"]);
 
     const result = await registrations.insertOne(json);
     const status = result.acknowledged? 201: 500;
