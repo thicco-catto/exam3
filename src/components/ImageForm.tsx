@@ -34,7 +34,7 @@ export function ImageForm() {
 
             if (response.ok) {
                 const data = await response.json();
-                setUploadMessage(`Image uploaded successfully. Public ID: ${data.public_id}`);
+                setUploadMessage(`Image uploaded successfully. Url: ${data.imageUrl}`);
             } else {
                 const errorData = await response.json();
                 setUploadMessage(`Error uploading image: ${errorData.msg}`);
