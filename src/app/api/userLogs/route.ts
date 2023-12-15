@@ -14,7 +14,7 @@ export async function GET(request: NextRequest) {
         delete filter.$and;
     }
 
-    const sort: { [key: string]: SortDirection } = { caducidad: -1 };
+    const sort: { [key: string]: SortDirection } = { date: -1 };
 
   const res = await registrations.find(filter).sort(sort).toArray();
 
