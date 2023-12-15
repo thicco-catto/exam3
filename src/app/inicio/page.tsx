@@ -23,7 +23,7 @@ export default async function Inicio() {
 
     return (
         <div>
-            <h1>InicioPage</h1>
+            <h1>Pagina de inicio</h1>
             <ImageForm></ImageForm>
 
             <p>Aqui tienes la dirección:</p>
