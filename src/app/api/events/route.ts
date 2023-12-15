@@ -5,7 +5,7 @@ export async function GET(request: NextRequest) {
     const coleccion = await GetEvents();
     const params = request.nextUrl.searchParams;
 
-    const res = await coleccion.find().toArray();
+    const res = await coleccion.find().sort({date: -1}).toArray();
 
     const lat = params.get("lat")
     const lon = params.get("lon")
