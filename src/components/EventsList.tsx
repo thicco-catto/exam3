@@ -19,8 +19,10 @@ interface EventListElementProps {
 
 export function EventListElement(props: EventListElementProps) {
     return <>
-        <a href={`/event/${props.event._id}`}><h2>{props.event.name}</h2></a>
-        <br></br>
-        <p>Organizado por: {props.event.organizer}</p>
+        <div style={{borderColor:"darkgray", borderWidth:"2px", borderRadius:"5px", marginTop:"10px", padding:"5px"}}>
+            <a href={`/event/${props.event._id}`}><h2>{props.event.name}</h2></a>
+            <br></br>
+            <p>Organizado por: {props.event.organizer}</p>
+        </div>
     </>;
 }

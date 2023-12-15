@@ -96,15 +96,16 @@ export function NewEventForm() {
     return <>
         <form onSubmit={HandleSubmit}>
             <label htmlFor="Name">Nombre del evento:</label>
-            <input name="Name" type="text" onChange={OnNameChange}></input>
+            <input style={{backgroundColor:"lightgray", marginBottom:"1%"}} name="Name" type="text" onChange={OnNameChange}></input>
 
             <br></br>
 
             <label htmlFor="postalCode">Código postal: </label>
-            <input onChange={OnPostalCodeChange} type="text" name="postalCode"></input>
+            <input style={{backgroundColor:"lightgray", marginBottom:"1%"}} onChange={OnPostalCodeChange} type="text" name="postalCode"></input>
 
             <br></br>
 
+            <label htmlFor="date">Fecha: </label>
             <DatePicker
                 name="date"
                 selected={date}
@@ -117,8 +118,8 @@ export function NewEventForm() {
             
             <br></br>
 
-            <input type="file" onChange={OnFileChange} />
-            <button type="submit">Upload Image</button>
+            <input style={{marginTop:"1%"}} type="file" onChange={OnFileChange} />
+            <button className="bg-sky-400 px-3 py-2 rounded" type="submit">Upload Image</button>
 
             <br></br>
 

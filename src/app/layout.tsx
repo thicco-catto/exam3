@@ -21,7 +21,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <Providers>
           <Navbar />
-          {children}
+          <div style={{padding:"3%"}}>
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

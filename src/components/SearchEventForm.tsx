@@ -23,7 +23,7 @@ export function SearchEventForm() {
     return <>
         <form onSubmit={HandleSubmit}>
             <label htmlFor="postalCode">Código postal: </label>
-            <input onChange={OnPostalCodeChange} type="text" name="postalCode"></input>
+            <input style={{backgroundColor:"lightgray", marginRight:"2%"}} onChange={OnPostalCodeChange} type="text" name="postalCode"></input>
             <button className="bg-sky-400 px-3 py-2 rounded" type="submit">Filtrar</button>
         </form>
     </>
